@@ -166,7 +166,12 @@ def where_and_when(datafile):
         "5031": "Toulouse",
         "5029": "Brest",
         "5030": "Lille",
-        "Trappes": "Trappes",  # For the test file only
+        "Trappes": "Trappes",
+        "TLV": "Tel-Aviv Sde-Dov",
+        "JR": "Jerusalem",
+        "RD": "Ramat-David",
+        "NV": "Nevatim",
+        "BD": "Beit-Dagan"
     }
 
     sites_id2lat = {
@@ -174,7 +179,12 @@ def where_and_when(datafile):
         "5031": 43.621,
         "5029": 48.45,
         "5030": 50.57,
-        "Trappes": 48.7743,  # For the test file only
+        "Trappes": 48.7743,
+        "TLV": 32.1,
+        "JR": 31.8,
+        "RD": 32.7,
+        "NV": 31.2,
+        "BD": 32.00
     }
 
     sites_id2lon = {
@@ -182,7 +192,12 @@ def where_and_when(datafile):
         "5031": 1.3788,
         "5029": -4.3833,
         "5030": 3.0975,
-        "Trappes": 2.0098,  # For the test file only
+        "Trappes": 2.0098,
+        "TLV": 34.8,
+        "JR": 35.2,
+        "RD": 35.2,
+        "NV": 34.9,
+        "BD": 34.81
     }
 
     Filename = os.path.split(datafile)[-1]
