@@ -29,9 +29,12 @@ from sklearn.metrics import (
 )
 
 # Local packages
-from kabl.ephemerid import Sun
-from kabl import paths
-from kabl import utils
+#from kabl.ephemerid import Sun
+#from kabl import paths
+#from kabl import utils
+from ephemerid import Sun
+import paths as paths
+import utils as utils
 
 
 def prepare_data(coords, z_values, rcss, params=None):
@@ -356,6 +359,7 @@ def apply_algo(X, n_clusters, init_codification=None, params=None):
 
 
 def blh_estimation(inputFile, outputFile=None, storeInNetcdf=True, params=None):
+    import xarray as xr
     """Perform BLH estimation on all profiles of the day and write it into
     a copy of the netcdf file.
     
@@ -472,8 +476,10 @@ def blh_estimation(inputFile, outputFile=None, storeInNetcdf=True, params=None):
     # ---------------------
     if storeInNetcdf:
         utils.add_blh_to_netcdf(inputFile, outputFile, blh)
-
-    return np.array(blh)
+    time_data = xr.load_dataset(inputFile)['time']
+    da = xr.DataArray(np.array(blh), dims=['time'])
+    da['time'] = time_data
+    return da
 
 
 def apply_algo_k_3scores(X, quiet=True, params=None):
